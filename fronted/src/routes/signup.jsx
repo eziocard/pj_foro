@@ -1,5 +1,5 @@
 import {Navigate,useNavigate} from 'react-router-dom';
-
+import './styles/signup.css';
 export default function Signup(){
   
   const goTo = useNavigate();
@@ -38,21 +38,21 @@ export default function Signup(){
    
   return(
   <>
-    <h1>Sign up</h1>
+    <h1 id = 'titulo'>Sign up</h1>
     <form className = "form" onSubmit={handleSubmit}>
-        <div>
+        <div className = 'form-group'>
           <label>username</label>
           <input type='text' name='username' required></input>
         </div>
-        <div>
+        <div className = 'form-group'>
           <label>age</label>
           <input type='number' min='18' name='age'  required></input>
         </div>
-        <div>
+        <div className = 'form-group'>
           <label>email</label>
           <input type='email' name='email'  required></input>
         </div>
-        <div>
+        <div className = 'form-group'>
           <label>password</label>
           <input type='password' name='password' required></input>
         </div>

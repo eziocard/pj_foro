@@ -1,5 +1,5 @@
 import {Navigate,useNavigate} from 'react-router-dom';
-
+import './styles/login.css'
 export default function Login(){
  const goTo = useNavigate(); 
   const handleSubmit = async (e) => {
@@ -35,17 +35,17 @@ export default function Login(){
 
   return(
   <>
-    <h1>Login</h1>
-    <form className = "form" onSubmit={handleSubmit}>
-      <div>
+    <h1 id = 'titulo'>Login</h1>
+    <form onSubmit={handleSubmit}>
+      <div className = 'form-group'>
           <label>Username</label>
-          <input type= 'username' name = 'username' required></input>
+          <input type= 'text' name = 'username' required></input>
         </div>
 
-        <div>
-          <label>Password</label>
-          <input type ='password' name = 'password'required></input>
-        </div>
+      <div className = 'form-group'>
+        <label>Password</label>
+        <input type ='password' name = 'password'required></input>
+      </div>
 
         <button type = 'submit' >Login</button>
     </form>

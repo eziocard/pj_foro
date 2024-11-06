@@ -1,0 +1,91 @@
+#titulo{
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.form-group input{
+  background-color: white;
+}
+
+
+
+/* Estilos generales para el formulario */
+form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para cada grupo de formulario (inputs) */
+.form-group {
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+/* Estilo para las etiquetas (labels) */
+.form-group label {
+  display: block;
+  font-size: 20px;
+  color: black;
+  background-color:white;
+  margin-bottom: 8px;
+}
+
+/* Estilo para los inputs */
+input[type='text'],
+input[type = 'number'],
+input[type = 'email'],
+input[type='password'] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+
+/* Estilo para el botón */
+button {
+  background-color: #ce2506;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+/* Estilo del botón cuando el usuario pasa el ratón por encima */
+button:hover {
+  background-color: #f5260a;
+}
+
+/* Estilo cuando el botón es presionado */
+button:active {
+  background-color: #388e3c;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 480px) {
+  form {
+    padding: 15px;
+    width: 90%;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
+

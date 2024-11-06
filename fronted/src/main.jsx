@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import Login from "./routes/login"
 import Signup from "./routes/signup"
+import 'bootstrap/dist/css/bootstrap.min.css';
 const router = createBrowserRouter([
   {
     path: "/",
