@@ -32,7 +32,7 @@ class Database():
         
         if existing_user:
             # Si ya existe un usuario con el mismo username o email
-            return False         
+            return True        
         else:
             query = """
                 CREATE (u:User {username: $username, name: $name,
@@ -59,6 +59,39 @@ class Database():
                 'name':name
                 }
         return self.execute_query(query,parameters)
+
+    def login_user(self,username,password):
+        verify_user = """
+            MATCH (u:User {username:$username})
+            RETURN u
+
+        """
+        verify_parameters = {
+                'username':username
+                }
+        existing_user = self.execute_query(verify_user,verify_parameters)
+        if existing_user:
+            verify_password = """
+            MATCH (u:User {username:$username,password:$password})
+            RETURN u
+
+             """
+            verify_auth = {
+                    'username':username,
+                    'password':password
+                    }
+            correct_password = self.execute_query(verify_password,verify_auth)
+            if correct_password:
+                return self.execute_query(verify_password,verify_auth)
+
+            else:
+                return False
+        else:
+            return False
+
+     
+       
+
 
     def read_users(self):
         query = """

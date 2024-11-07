@@ -25,19 +25,20 @@ export default function Login(){
     });
 
     // Comprobar si la respuesta fue exitosa
-    if (!response.ok) {
-      // Si la respuesta no es 200-299, lanzar un error
-     setErrorResponse("Error al Procesar Datos"); 
+   if (!response.ok) {
+
+      const errorData = await response.json();
+      setErrorResponse(errorData.detail || "Error desconocido al procesar los datos.");
+      return;       
     }
 
-    const responseData = await response.json();
-    console.log("Respuesta de la API:", responseData);
-    goTo("/");
+  const responseData = await response.json();
+  console.log("Respuesta de la API:", responseData);
+  goTo("/login");     
   } catch (error) {
-    console.error("Error en la solicitud:", error);
-    setErrorResponse("Error al Procesar Datos");
-  }
-};
+     console.error("Error en la solicitud:", error);
+  setErrorResponse("Hubo un error en la solicitud. Intenta nuevamente.");
+  }};
 
 
   return(
