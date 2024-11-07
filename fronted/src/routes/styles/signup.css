@@ -88,4 +88,9 @@ button:active {
     font-size: 14px;
   }
 }
-
+.errorMessage{
+  background-color:#e9e618;
+  color: black;
+  text-align: center;
+  border-radius: 4px;
+}

@@ -1,8 +1,11 @@
 import {Navigate,useNavigate} from 'react-router-dom';
+import { useState } from 'react';
 import './styles/signup.css';
 export default function Signup(){
   
   const goTo = useNavigate();
+  const [errorResponse,setErrorResponse] = useState("");
+
 
   const handleSubmit = async (e) => {
   e.preventDefault();
@@ -24,8 +27,9 @@ export default function Signup(){
 
     // Comprobar si la respuesta fue exitosa
     if (!response.ok) {
-      // Si la respuesta no es 200-299, lanzar un error
-      
+      // Si la respuesta no es 200-299, lanzar un erro {!!errorResponse && <div className = "errorMessage">{errorResponse}</div>}r
+      setErrorResponse("Error al Procesar Datos");
+ 
     }
 
     const responseData = await response.json();
@@ -33,13 +37,17 @@ export default function Signup(){
     goTo("/login");
   } catch (error) {
     console.error("Error en la solicitud:", error);
+    setErrorResponse("Error al Procesar Datos");
+
   }
 };
    
   return(
   <>
     <h1 id = 'titulo'>Sign up</h1>
-    <form className = "form" onSubmit={handleSubmit}>
+
+      <form className = "form" onSubmit={handleSubmit}>
+         {!!errorResponse && <div className = "errorMessage">{errorResponse}</div>}
         <div className = 'form-group'>
           <label>username</label>
           <input type='text' name='username' required></input>
