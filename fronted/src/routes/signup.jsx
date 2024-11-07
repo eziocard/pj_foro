@@ -11,7 +11,8 @@ export default function Signup(){
   e.preventDefault();
   const data = {
     username: e.target.username.value,
-    age: e.target.age.value,
+    name: e.target.name.value,
+    lastname: e.target.lastname.value,
     email: e.target.email.value,
     password: e.target.password.value,
   };
@@ -27,23 +28,22 @@ export default function Signup(){
 
     // Comprobar si la respuesta fue exitosa
     if (!response.ok) {
-      // Si la respuesta no es 200-299, lanzar un erro {!!errorResponse && <div className = "errorMessage">{errorResponse}</div>}r
-      setErrorResponse("Error al Procesar Datos");
- 
-    }
+
+        const errorData = await response.json();
+        setErrorResponse(errorData.detail || "Error desconocido al procesar los datos.");
+        return;       
+      }
 
     const responseData = await response.json();
     console.log("Respuesta de la API:", responseData);
-    goTo("/login");
-  } catch (error) {
-    console.error("Error en la solicitud:", error);
-    setErrorResponse("Error al Procesar Datos");
-
-  }
-};
+    goTo("/login");     
+    } catch (error) {
+       console.error("Error en la solicitud:", error);
+    setErrorResponse("Hubo un error en la solicitud. Intenta nuevamente.");
+    }};
    
   return(
-  <>
+<>
     <h1 id = 'titulo'>Sign up</h1>
 
       <form className = "form" onSubmit={handleSubmit}>
@@ -53,16 +53,21 @@ export default function Signup(){
           <input type='text' name='username' required></input>
         </div>
         <div className = 'form-group'>
-          <label>age</label>
-          <input type='number' min='18' name='age'  required></input>
+          <label>name</label>
+          <input type='text' name='name'  required></input>
         </div>
+         <div className = 'form-group'>
+          <label>lastname</label>
+          <input type='text' name='lastname'  required></input>
+        </div>
+
         <div className = 'form-group'>
           <label>email</label>
           <input type='email' name='email'  required></input>
         </div>
         <div className = 'form-group'>
           <label>password</label>
-          <input type='password' name='password' required></input>
+          <input type='password' name='password' required></input>:
         </div>
 
         <button type='submit'>ready</button>
