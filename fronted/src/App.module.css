@@ -14,30 +14,32 @@
   font-size: 100px;
 }
 
-button{
-  margin-top: 100px;
-  margin-left: 20px !important;
-}
-button,a{
+.button{
   background-color: #ce2506; 
   padding: 15px 32px;
   text-align: center;
-  color:white !important;
-  text-decoration: none !important;
+  color:white ;
+  text-decoration: none ;
   display: inline-block;
-  font-size: 16px;
-  border-radius:3px !important;
-  margin:20px;
+  font-size: 80px;
+  border-radius:10px ;
+  margin:40px;
+}
+.a{
+  text-decoration: none ;
+  color:white ;
+  background-color: #ce2506;
+  border-radius: 3px;
 }
 
 /* Estilo del botón cuando el usuario pasa el ratón por encima */
-button:hover {
+.button:hover,.a:hover {
   background-color: #f5260a;
 }
 
 /* Estilo cuando el botón es presionado */
-button:active {
-  background-color: #388e3c;
+.button:active, .a:hover {
+  background-color:  #f5260a;
 }
 
 
