@@ -1,6 +1,17 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from conexion import Database
+from pydantic import BaseModel
+from fastapi import HTTPException
+
+
+class Register(BaseModel):
+    username: str
+    name: str
+    lastname:str
+    email:str
+    password:str
 
 app = FastAPI()
 
@@ -17,7 +28,20 @@ def read():
     return {"bye":"world"}
 
 @app.post("/signup")
-def read_root():
-    return {"Hello": "World"}
+async def signup(register:Register):
+    username = register.username
+    name= register.name
+    lastname = register.lastname
+    email = register.email
+    password = register.password
+
+
+    user_exists = Database().create_user(username,name,lastname,email,password)  # Simulando una verificación de si el usuario ya existe
+    if user_exists:
+        raise HTTPException(status_code=404, detail="Ya existe un usuario con ese nombre de usuario o correo electrónico")
+
+    # Si el usuario no existe, procedes con la creación del usuario
+    return {"message": "Usuario creado exitosamente"}
+
 
 
