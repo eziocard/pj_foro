@@ -33,8 +33,10 @@ export default function Login(){
     }
 
   const responseData = await response.json();
+
   console.log("Respuesta de la API:", responseData);
-  goTo("/login");     
+  localStorage.setItem("token", responseData.token);
+    goTo("/dashboard");  
   } catch (error) {
      console.error("Error en la solicitud:", error);
   setErrorResponse("Hubo un error en la solicitud. Intenta nuevamente.");

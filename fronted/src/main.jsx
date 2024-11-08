@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import Login from "./routes/login"
 import Signup from "./routes/signup"
+import Dashboard from './routes/dashboard.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path:"/login",
     element: <Login />
+  },
+  {
+    path:"/dashboard",
+    element: <Dashboard />
   }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
