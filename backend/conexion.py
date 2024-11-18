@@ -166,10 +166,10 @@ class Database():
 
 
 
-hola = Database()
+#hola = Database()
 #hola.create_user('flaviongas','flavio','flores','flavio@gmail.com','2024/11/04','1234')
 #hola.delete_user('ricardo')
 #hola.create_post('hola mundo','chao mundo','flavio','2024/11/04')
 #hola.create_comment('flavio','hola no soy el flavio xd','2024/11/04')
-hola.delete_user('flavio')
-print(hola.read_users())
+#hola.delete_user('flavio')
+#print(hola.read_users())

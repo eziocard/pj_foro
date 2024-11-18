@@ -1,0 +1,31 @@
+.divider {
+    width: 2px; /* Ajusta el ancho de la línea */
+    height: 90%; /* Que ocupe todo el alto de la columna */
+    background-color: black; /* Color de la línea */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 5%;
+    left: 50%; /* Centra la línea horizontalmente */
+    transform: translateX(-50%);
+  }
+
+
+
+.izquierda{
+    
+    display: flex;
+    background-color: #933030;
+    justify-content:center;
+    align-items: center;
+    
+    
+}
+.derecha{
+    display: flex;
+    background-color: #D9D9D9;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+}
+
+
+  
