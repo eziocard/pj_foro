@@ -1,0 +1,26 @@
+.sidebar {
+  width: 290px;
+  height: 100vh; /* Altura completa de la ventana */
+  background-color: #933030; /* Color de fondo */
+  color: white;
+  position: fixed; /* Fijo en el lado izquierdo */
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column; /* Coloca elementos en columna */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  align-items: center;
+ 
+}
+
+img{
+  background-color: white;
+  border-radius: 150px;
+}
+
+#username, #name{
+  margin-top: 8px;
+  font-size: 20px;
+}
+

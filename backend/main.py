@@ -5,7 +5,6 @@ from conexion import Database
 from pydantic import BaseModel
 from fastapi import HTTPException
 from functions_jwt import validate_token, write_token
-
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -21,6 +20,8 @@ class Login(BaseModel):
     username:str
     password:str
 
+class currentUser(BaseModel):
+    username:str
 app = FastAPI()
 
 app.add_middleware(
@@ -77,6 +78,11 @@ async def signup(register:Register):
 
     # Si el usuario no existe, procedes con la creación del usuario
     return {"message": "Usuario creado exitosamente"}
+
+
+@app.get("/search_users")
+async def search_users():
+    return Database().read_users()
 
 
 

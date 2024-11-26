@@ -26,6 +26,10 @@
     align-items: center;
     text-align: center;
 }
+.derecha button{
+  margin-left: 50px;
+  font-size: 40px;
+}
 
 
   

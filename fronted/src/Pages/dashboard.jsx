@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import './styles/dashboard.css'
+import User_logo from './icons/user_8647311.png';
+import Search_users from '../Components/search_users';
 import axios from 'axios';
 
 const Dashboard = () => {
@@ -46,12 +49,15 @@ const Dashboard = () => {
   }
 
   return (
-    <div>
-      <h1>Dashboard de {userData.name}</h1>
-      <p>Nombre: {userData.name} {userData.lastname}</p>
+    <div className='sidebar'>
+      <h1 id = 'username'>{userData.username}</h1>
+      <img src={User_logo} alt="Logo" width="120" />
+      <h2 id = 'name'>{userData.name} {userData.lastname}</h2>
+      <Search_users/>
       <p>Correo electrónico: {userData.email}</p>
       <p>Usuario: {userData.username}</p>
       {/* Aquí puedes agregar más información que desees mostrar */}
+      <h1>hola</h1>
     </div>
   );
 };

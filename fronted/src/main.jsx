@@ -2,9 +2,9 @@ import { StrictMode } from 'react'
 import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter,RouterProvider} from 'react-router-dom';
 import App from './App.jsx'
-import Login from "./routes/login"
-import Signup from "./routes/signup"
-import Dashboard from './routes/dashboard.jsx';
+import Login from "./Components/login"
+import Signup from "./Components/signup"
+import Dashboard from './Pages/dashboard.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 const router = createBrowserRouter([
   {

@@ -1,5 +1,5 @@
-import Login from '../routes/login';
-import Signup from '../routes/signup';
+import Login from '../Components/login';
+import Signup from '../Components/signup';
 import './styles/Login-Signup.css';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
