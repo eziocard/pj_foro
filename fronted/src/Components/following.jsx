@@ -75,7 +75,7 @@ const Following = () => {
 
   return (
     <div>
-      <h2>Following</h2>
+      <h2 style={{color: 'black'}}>Following</h2>
       
       {/* Mostrar la tabla de seguidores */}
       <table className="table table-striped table-hover shadow-lg">
