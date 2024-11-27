@@ -8,22 +8,25 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 function Home() {
-
   const [modalShowS, setModalShowS] = useState(false);
   const [modalShowL, setModalShowL] = useState(false);
 
+  const handleSignupSuccess = () => {
+    setModalShowS(false); 
+    setModalShowL(true); 
+  };
+
   return (
-    <Container fluid style={{ height: '100vh' }}>
-
-      <Row style={{ display: 'flex', height: '100%' }}>
-        
-        <Col className='izquierda'>
-        <img src="https://tienda.uautonoma.cl/wp-content/uploads/2024/10/pumin_chatbox.png" className="img-fluid" ></img>
-        <div className='divider'></div>
+    <Container fluid style={{ height: "100vh" }}>
+      <Row style={{ display: "flex", height: "100%" }}>
+        <Col className="izquierda">
+          <img
+            src="https://tienda.uautonoma.cl/wp-content/uploads/2024/10/pumin_chatbox.png"
+            className="img-fluid"
+          ></img>
+          <div className="divider"></div>
         </Col>
-
-        
-        <Col className='derecha'>
+        <Col className="derecha">
           <Row>
             <Col>
               <Button variant="primary" onClick={() => setModalShowS(true)}>
@@ -32,6 +35,7 @@ function Home() {
               <Signup
                 show={modalShowS}
                 onHide={() => setModalShowS(false)}
+                onSignupSuccess={handleSignupSuccess} // Maneja el éxito del registro
               />
             </Col>
           </Row>
@@ -45,11 +49,11 @@ function Home() {
                 onHide={() => setModalShowL(false)}
               />
             </Col>
-          </Row>          
-        </Col>        
-      </Row>      
+          </Row>
+        </Col>
+      </Row>
     </Container>
   );
 }
-  
-  export default Home
+
+export default Home;
