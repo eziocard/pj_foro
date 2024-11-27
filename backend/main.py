@@ -26,7 +26,8 @@ class currentUser(BaseModel):
 class FollowRequest(BaseModel):
     follower: str
     followee: str
-
+class userRequest(BaseModel):
+    username:str
 app = FastAPI()
 
 app.add_middleware(
@@ -95,10 +96,10 @@ async def search_users(username:str):
  #   return null
 
 @app.get("/followers/{username}")
-async def get_followers(username: str):    
-    return Database().friend_users(username)
+async def followers(username: str,):
+     return Database().friend_users(username)
 
-
+   
 @app.post("/make_follow")
 async def make_follow(follow_request: FollowRequest, Authorization: str = Header(None)):
     token = Authorization.split(" ")[1]  # Extraer el token de los encabezados

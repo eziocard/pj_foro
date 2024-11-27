@@ -192,12 +192,12 @@ class Database():
     def friend_users(self, username):
         query = """
             MATCH (:User {username: $username})-[:FOLLOW]->(u:User)
-            RETURN u
+            RETURN u.username AS username
             """
-        parameters = {
-            'username':username
-        }
-        return self.execute_query(query,parameters)
+        parameters = {'username': username}
+        result = self.execute_query(query, parameters)
+        return [record['username'] for record in result]  # Devuelve solo los usernames
+
 #hola = Database()
 #hola.create_user('flaviongas','flavio','flores','flavio@gmail.com','2024/11/04','1234')
 #hola.delete_user('ricardo')
