@@ -99,6 +99,18 @@ class Database():
         """
         return self.execute_query(query)
     
+
+    def not_friend_users(self, username):
+        query = """
+            MATCH (u:User)
+            WHERE NOT (:User {username: $username})-[:FOLLOW]->(u)
+            AND u.username <> $username
+            RETURN u
+            """
+        parameters = {
+            'username':username
+        }
+        return self.execute_query(query,parameters)
     #MANEJO DE POST
     
     def create_post(self,title,content,autor,timestamp):
@@ -164,8 +176,28 @@ class Database():
         """
         return self.execute_query(query)
 
+    def create_folow(self,follower,followee):
+        query = """
+        MATCH (follower:User {username: $follower}), (followee:User {username: $followee})
+        CREATE (follower)-[:FOLLOW]->(followee)
+        RETURN follower, followee
+        """
+        parameters = {
+        'follower': follower,
+        'followee': followee
+        }
+        return self.execute_query(query, parameters)
 
 
+    def friend_users(self, username):
+        query = """
+            MATCH (:User {username: $username})-[:FOLLOW]->(u:User)
+            RETURN u
+            """
+        parameters = {
+            'username':username
+        }
+        return self.execute_query(query,parameters)
 #hola = Database()
 #hola.create_user('flaviongas','flavio','flores','flavio@gmail.com','2024/11/04','1234')
 #hola.delete_user('ricardo')

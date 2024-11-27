@@ -22,6 +22,11 @@ class Login(BaseModel):
 
 class currentUser(BaseModel):
     username:str
+
+class FollowRequest(BaseModel):
+    follower: str
+    followee: str
+
 app = FastAPI()
 
 app.add_middleware(
@@ -80,9 +85,31 @@ async def signup(register:Register):
     return {"message": "Usuario creado exitosamente"}
 
 
-@app.get("/search_users")
-async def search_users():
-    return Database().read_users()
+@app.get("/search_users/{username}")
+async def search_users(username:str):
+    return Database().not_friend_users(username)
 
 
+#@app.get("/folliwng")
+#async def folliwng():
+ #   return null
 
+@app.get("/followers/{username}")
+async def get_followers(username: str):    
+    return Database().friend_users(username)
+
+
+@app.post("/make_follow")
+async def make_follow(follow_request: FollowRequest, Authorization: str = Header(None)):
+    token = Authorization.split(" ")[1]  # Extraer el token de los encabezados
+    decoded_data = validate_token(token, output=True)
+    
+    # Validar si el token es válido
+    if not decoded_data:
+        raise HTTPException(status_code=401, detail="Token inválido o expirado")
+    follower = follow_request.follower
+    followee = follow_request.followee
+
+    Database().create_folow(follower,followee)   # Aquí es donde harías la lógica para guardar el seguimiento en la base de datos
+    # Si la operación de seguimiento es exitosa:
+    return {"message": f"Usuario {follow_request.follower} sigue a {follow_request.followee}"}

@@ -11,16 +11,30 @@
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   align-items: center;
- 
 }
 
-img{
+img {
   background-color: white;
   border-radius: 150px;
 }
 
-#username, #name{
+#username, #name {
   margin-top: 8px;
   font-size: 20px;
+}
+
+/* Aquí comienza la parte para mantener "following" al pie */
+#search_users {
+  flex: 1; /* El área de búsqueda ocupa todo el espacio disponible */
+  overflow-y: auto;  /* Permite el desplazamiento si el contenido es demasiado largo */
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+#following {
+  margin-top: auto; /* Empuja "following" al final de la barra lateral */
+  background-color: #f3f3f3;  /* Puedes cambiar el color de fondo */
+  padding: 10px;
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  margin-top: 20px; /* Espacio entre la búsqueda y "following" */
 }
 
