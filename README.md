@@ -1,5 +1,14 @@
 Cosas importantes del repositorio
 
+Cosas importantes del repositorio tener nodejs y python instalado 1.-Correr el backend instalar librerias python: pip install neo4j pip install Pyjwt pip install "fastapi[standard]"
+
+el backend nos dirijimos al directorio /pj_foro/backend/ y utilizamos uvicorn main:app --reload
+
+2.- Correr fronted nos dirigimos a /pj_foro/fronted y ponemos npm i y para correrlo ponemos npm run dev
+
+importante!!! para inicializar el proyecto tienes que encender la api con el comando fastapi dev main.py dentro de la carpeta Backend y en fronted debes utilizar npm i para instalar todo y utilizar npm run dev dentro de la carpeta
+
+
 importante!!!
  para inicializar el proyecto tienes que encender la api con el comando fastapi dev main.py dentro de la carpeta Backend 
  y en fronted debes utilizar npm i para instalar todo y utilizar npm run dev dentro de la carpeta 
